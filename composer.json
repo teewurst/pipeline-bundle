@@ -1,0 +1,27 @@
+{
+    "name": "teewurst/pipeline-bundle",
+    "type": "library",
+    "description": "Symfony bundle for teewurst/pipeline",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Martin Ruf",
+            "email": "Martin.Ruf@rerp.de"
+        },
+        {
+            "name": "Andreas Frömer",
+            "email": "github@icanhazstring.net"
+        }
+    ],
+    "require": {
+        "php": "^7.4 || ^8.0",
+        "symfony/http-kernel": "^4.4 || ^5.3",
+        "teewurst/pipeline": "^2.0",
+        "symfony/dependency-injection": "^4.4 || ^5.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Teewurst\\PipelineBundle\\": "src/"
+        }
+    }
+}

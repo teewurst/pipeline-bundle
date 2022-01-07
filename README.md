@@ -31,12 +31,17 @@ My\App\MyPipeline:
     factory:   ['@teewurst\pipeline\PipelineService', create]
     arguments:
         # First Argument an array of <TaskInterface|array<TaskInterface|array<...>>>
-        - - '@My\App\CheckServiceAvailabilityTask'
-          - - '@My\App\ErrorHandlerTask' # catch execution of submission even on error
-            - - '@My\App\PrepareDataTask'
-              - '@My\App\ValidateDataTask'
-              - '@My\App\DoGetOfferRequestTask'
-           # .. some additional things like set quote, upload documents etc.
-          - - '@My\App\LogResultLocalyTask'
-            - '@My\App\LogResultInDWTask'
+        $tasks:
+        - '@My\App\CheckServiceAvailabilityTask'
+        - - '@My\App\ErrorHandlerTask' # catch execution of submission even on error
+          - - '@My\App\PrepareDataTask'
+            - '@My\App\ValidateDataTask'
+            - '@My\App\DoGetOfferRequestTask'
+         # .. some additional things like set quote, upload documents etc.
+        - - '@My\App\LogResultLocalyTask'
+          - '@My\App\LogResultInDWTask'
+        # Options array to pass pipeline
+        $options:
+            - any
+            - options
 ```
